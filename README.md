@@ -15,3 +15,8 @@ JavaScript: The First 20 Years 中文翻译
 对于翻译内容的要求：翻译出原意即可提 pr，后续慢慢润色
 
 PS：还愿项目，翻译的很慢，但愿能翻译下去
+
+## 翻译器
+
+https://www.deepl.com/translator -> 这个翻译的不错
+https://translate.google.cn/
