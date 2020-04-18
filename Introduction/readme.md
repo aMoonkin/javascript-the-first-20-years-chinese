@@ -39,3 +39,25 @@ JavaScript® 也是一个注册商标。这个商标最初是 Sun Microsystems �
 在为语言制定规范时，避免了使用"Javascript"一词。该规范使用的是"ECMAScript"。"Javascript"和"ECMAScript"基本上是同一事物的不同名字。在本文中，当我们使用术语"ECMAScript"时，专门指标准定义的语言。
 
 "ECMASCript"中的"ECMA"部分源自瑞士标准组织 Ecma International，该组织主持了语言标准的制定。"ECMA"原本是 European Computer Manufacturers Association（欧洲计算机制造商协会）的缩写，该协会后来演变为 Ecma International 组织。该组织现在不再把"Ecma"当作首字母缩写词，仅仅把"Ecma"中的"E"大写。但在过去，它们使用全大写字母。ECMAScript 最初的制定是在这种情况下，因此存在五个大写字母。在本文中，我们使用单词"Ecma"通常是指 Ecma 国际标准化组织。
+
+Ecma 制定了许多与计算相关的标准。制定标准的实际工作是在 Ecma 技术委员会（简称 "TC"）内进行的。当创建一个新的 Ecma TC 时，它被分配了一个序列号来唯一标识它。TC39 是为规范 JavaScript 而创建的 TC。一些 Ecma 的 TC 被细分为任务组，简称为 "TG"，有特定的职责。从 2000 年到 2007 年，TC39 的职责范围扩大到了除 JavaScript 之外的其他编程语言。在这期间，ECMAScript 的责任被分配给了 TC39-TG1。本文中，我们用 "TG1 "作为 TC39-TG1 的缩写。
+
+ECMAScript 标准被指定为 "ECMA-262"。当一个标准修订后，新的版本会用相同的版本号作为后缀。例如，ECMAScript 标准的第三版正式名称为 "ECMA-262，第三版"。在 TC39 内部，以及最终在更广泛的 JavaScript 社区中，形成了一个惯例，即使用 "ES3 "这样的缩写作为正式版本的缩写，"ES "代表 "ECMAScript"。表 1 列出了 ECMA-262g 的版本以及本文所使用的缩略词。
+
+| 缩写           | 版本 | 日期             | 项目编辑                           | 页数 |
+| :------------- | :--- | :--------------- | :--------------------------------- | :--- |
+| ES1            | 1st  | 1997.6           | Guy Steele                         | 95   |
+| ES2            | 2nd  | 1998.8           | Mike Cowlishaw                     | 101  |
+| ES3            | 3rd  | 1999.12          | Mike Cowlishaw                     | 172  |
+| ES3.1          | 5th  | 第五版的内部名称 |                                    |      |
+| ES4_1 and ES42 | 4th  | 废弃，未完成     |                                    |      |
+| ES5            | 5th  | 1999.12          | Pratap Lakshman, Allen Wirfs-Brock | 245  |
+| ES5.1          | 5.1  | 2011.6           | Allen Wirfs-Brock                  | 245  |
+| ES6 or ES2015  | 6th  | 2015.6           | Allen Wirfs-Brock                  | 545  |
+| ES2016         | 7th  | 2016.6           | Brian Terlson                      | 546  |
+
+制定第 4 版规范的尝试历时近 10 年，由两项基本独立的设计工作组成。在本文中，"ES4_1"和 "ES4_2"分别指这两个成果，ES4 是指为创建第 4 版的总体努力。
+
+从第 6 版出版开始，TC39 采用了以出版年份作为缩写的惯例。因此，"ES6"和 "ES2015"都是 "ECMA-262，第 6 版"的非正式缩写，但以 "ES2015 "为首选。但是，在第 6 版的制定过程中，"ES6"是最常用的缩写。TC39 成员还使用 "Harmony"和 "ES next"作为代号来指代第 6 版开发项目。
+
+本文使用大量的内联代码片段来说明 JavaScript 的概念。其中一些代码片段只适用于特定版本的 JavaScript/ECMAScript，一些片段说明了从未成为语言的一部分的拟议特性。在本文中，不是对所有版本的 JavaScript/ECMAScript 都有效的片段都会被标注出来。
