@@ -27,3 +27,15 @@ Brendan Eich 1985 年硕士毕业于 UIUC 后，前往 Silicon Graphics, Inc 工
 在克服了前两个反对意见后，Marc Andreessen 提出了浏览器脚本语言的代号 "Mocha"，据 Eich 说，希望在适当的时候将该语言改名为 "JavaScript"。这种与 Java 相伴的语言必须 "看起来像 Java"，同时保持简单易用，"基于对象"，而不是像 Java 那样基于类。
 
 最后的反对意见依然存在：Netscape 公司是否拥有创建有效的脚本语言的专业知识，并为 1995 年 9 月的 Netscape 2 测试版做好了准备？Brendan Eich 的任务是通过创建 Mocha 来证明他们们有这个能力。
+
+### 2.2 Mocha 的故事
+
+随着 Java 发布的临近，Brendan Eich 看到了时间的重要性，他认为多个二鸟在林不如一鸟在手，于是他在 1995 年 5 月用十天的时间完成了第一个 Mocha 的原型实现。这项工作是为了满足可行性演示的最后期限而仓促进行的。该演示包括了最基本的语言实现，并将其最小化集成到 Netscape 2 的 pre-alpha 浏览器中。
+
+Eich 的原型是在 Silicon Graphics Indy Unix 工作站[Netfreak 2019]上开发的。该原型使用了一个手写的词法分析器和递归下降语法分析器。语法分析器生成字节码指令而不是语法树。字节码的转义很简单，速度也很慢
+
+字节码是 Netscape Livewire 服务器的一个必要依赖，其开发人员甚至在 Mocha 还没有原型化之前就指望着嵌入 Mocha。该团队的前 Borland 管理和工程人员是动态脚本语言的忠实拥护者，但他们希望使用字节码，而不是源解析，以加快服务器应用程序的加载速度。
+
+Marc Andreessen 强调 mocha 应该是非常容易编写的语言，任何人都可以直接在 html 文档中写得出几行 mocha。Sun 和 Netscape 的高层管理人员重申了 Mocha“看起来像 Java”的要求，明确排除了任何类似 BASIC 的东西。但是，类似 Java 的外观造成了对类似 Java 的行为的期望，这影响了对象模型的设计和 boolean、int、double 和 string 等“基本类型”的语义。
+
+除了看起来像 Java 之外，Brendan Eich 可以自由选择大部分语言设计细节。在加入 Netscape 之后，他曾探索过“易于使用”或“教学型”语言，包括 HyperTalk、Logo 和 Self。每个人都同意 Mocha 将是 "基于对象的"，但没有类，因为支持类会花费太长的时间，而且有与 Java 竞争的风险。出于对 Self 的钦佩，Eich 选择了从一个动态对象模型开始，使用委托代理和单一原型链的动态对象模型。他认为这样做可以节省实现时间，尽管最终他缺乏足够的时间在 Mocha 原型中暴露出这种机制。
