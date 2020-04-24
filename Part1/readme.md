@@ -39,3 +39,7 @@ Eich 的原型是在 Silicon Graphics Indy Unix 工作站[Netfreak 2019]上开�
 Marc Andreessen 强调 mocha 应该是非常容易编写的语言，任何人都可以直接在 html 文档中写得出几行 mocha。Sun 和 Netscape 的高层管理人员重申了 Mocha“看起来像 Java”的要求，明确排除了任何类似 BASIC 的东西。但是，类似 Java 的外观造成了对类似 Java 的行为的期望，这影响了对象模型的设计和 boolean、int、double 和 string 等“基本类型”的语义。
 
 除了看起来像 Java 之外，Brendan Eich 可以自由选择大部分语言设计细节。在加入 Netscape 之后，他曾探索过“易于使用”或“教学型”语言，包括 HyperTalk、Logo 和 Self。每个人都同意 Mocha 将是 "基于对象的"，但没有类，因为支持类会花费太长的时间，而且有与 Java 竞争的风险。出于对 Self 的钦佩，Eich 选择了从一个动态对象模型开始，使用委托代理和单一原型链的动态对象模型。他认为这样做可以节省实现时间，尽管最终他缺乏足够的时间在 Mocha 原型中暴露出这种机制。
+
+对象是通过将 new 操作符应用到构造函数上来创建的。一个名为 Object 的默认对象构造函数与其他内置对象一起被内置到环境中。每个对象都由 0 个或多个 property 组成。每个 property 都有一个名字（也被叫做 property 的 key）和一个 value，这个 value 可以是一个函数，一个对象或者一个其他内置数据类型的值。property 是通过给一个未使用的 property key 赋值来创建的。property 没有可见性或赋值限制。一个构造函数可以提供一个初始 property 集合。在对象创建后，可以向其添加额外的属性。这种非常动态的方法特别受到 LiveWire 团队的青睐。
+
+尽管做 Scheme 的诱惑已经消失，但 Brendan Eich 仍然觉得 Lisp 中函数是一等公民的概念很有吸引力。没有了类来包含方法，一等公民的函数为受 Scheme 启发的语法提供了一个工具包，顶层程序（TODO 这里不太懂），函数作为值传递，对象中的方法和事件处理程序。由于时间的限制，函数表达式（也叫 lambda 表达式，lambdas）未能实现，但它们在语法中被保留了下来。事件处理程序和对象方法被统一起来，通过引入 从 Java（C++之后）中借用的 this 关键字来表示该函数作为方法被调用的上下文对象。
