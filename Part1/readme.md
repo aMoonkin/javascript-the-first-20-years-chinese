@@ -52,3 +52,17 @@ Marc Andreessen 强调 mocha 应该是非常容易编写的语言，任何人都
 图 2: Mocha Console。Brendan Eich 最初的 Mocha 演示中，在 SGI Unix 工作站上运行的 Netscape 2 的 pre-alpha 版本的 Mocha Console。同样的 Mocha Console 在 Netscape 2 的生产版中，除了名字之外，基本上没有任何变化。这是 Netscape 2.02 在 Windows 95 上运行的屏幕截图。Mocha 控制台是通过在浏览器地址栏中输入 mocha:来激活的，而在 Netscape 2 的生产版中，这被改为 javascript:，但 mocha:仍然有效。激活控制台会在浏览器中打开一个 2 个 frame 的页面。在下层 frame 的文本框中输入的 Mocha 表达式在上层框架的上下文中被执行。这个例子显示了内置的 alert 函数被调用来显示一个包含表达式的计算值的弹出窗口。最初的演示版本会在弹出窗口中显示 "Mocha Alert"，而不是 "JavaScript Alert"。
 
 关于 Mocha 的 10 天创作的更多细节请参见 Brendan Eich 对这个故事的复述。Mocha 制作版的源代码可以通过互联网存档获得。Jamie Zawinski 的《网景宿舍（TODO dorm）》是对这一时期网景公司作为软件开发者的工作经历的同期记述。
+
+## 3. Javascript1.0 和 1.1
+
+1995 年 12 月 4 日，Netscape 通讯公司和 Sun Microsystems 公司在一份联合新闻稿中宣布了 JavaScript 的诞生。该新闻稿将 JavaScript 描述为 "一种对象脚本语言"，可用于编写脚本，动态地"修改 Java 对象的属性和行为"，它将作为"对 Java 的补充，便于在线应用程序开发"。这两家公司试图在 Java 和 JavaScript 语言之间建立起强大的品牌联系，尽管它们的技术设计只是表面上的相似。这种名称的相似性及其对这两种语言之间密切联系的暗示一直令人十分迷惑。
+
+1995 年 9 月，以"LiveScript"为名的 JavaScript 最初是作为 Netscape Navigator 2.0 的第一个测试版中的一部分向公众开放的。之后又发布了四次测试版，直到 1996 年 3 月发布了支持 JavaScript 1.0 的 Navigator 2.0 正式版。Netscape 企业服务器 2.0 也于 3 月发布，并在其 LiveWire 服务器端脚本组件中包含了 JavaScript 1.0。
+
+JavaScript 只是 Netscape Navigator 的一个相对次要的功能。因此，它的开发受到了整个 Navigator 2.0 计划的限制，在 1995 年 8 月需要锁版本。Javascript1.0 的功能集基本上是对当年 8 月 Mocha 实现中的功能集进行了分类集成（triage）。尽管在整个 Navigator 2.0 发布过程中，Eich 一直在修复最初的 Mocha 实现中的 bug，但相对于所设想的语言设计来说，这个功能集并不完整，并且表现出了各种有问题的 bug 和边界条件。Brendan Eich 在在 1.0 版本发布前不久接受采访时表示，官方将 JavaScript 定位为 Java 的附属品，而且最初发布的时候很仓促：
+
+> BE(Brendan Eich): 我希望其他厂商能够基于我和 Bill Joy 正在研究的规范把它(Javascript)实现。我希望他仍旧很小巧，但却在互联网上无处不在，成为连接 HTML 元素和在其之上操作包括 Java 小程序和其他组件的首选方式。
+
+> BE: ......据我所知，他最常见的用途是让页面更智能，更生动，比如点击一个链接，并且根据一天中的日期加载不同的 URL。
+
+> BE: 隧道的尽头是有光亮的，尽管 Javascript 因为过于单打独斗，导致(Netscape)2.0 包含无数恼人的小 bug，我的希望是所有的大 bug 都有解决方案，我也花了很多时间和开发人员一起寻找 bug 和解决方案。我正在跟进 2.1 版本，修复 bug，增加功能，并努力使 JavaScript 在所有平台上保持一致。我不知道 2.1 版本什么时候会发布，但我敢打赌在明年秋天之前就会发布——我们的动作很快。
