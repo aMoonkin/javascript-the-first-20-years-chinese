@@ -66,3 +66,32 @@ JavaScript 只是 Netscape Navigator 的一个相对次要的功能。因此，�
 > BE: ......据我所知，他最常见的用途是让页面更智能，更生动，比如点击一个链接，并且根据一天中的日期加载不同的 URL。
 
 > BE: 隧道的尽头是有光亮的，尽管 Javascript 因为过于单打独斗，导致(Netscape)2.0 包含无数恼人的小 bug，我的希望是所有的大 bug 都有解决方案，我也花了很多时间和开发人员一起寻找 bug 和解决方案。我正在跟进 2.1 版本，修复 bug，增加功能，并努力使 JavaScript 在所有平台上保持一致。我不知道 2.1 版本什么时候会发布，但我敢打赌在明年秋天之前就会发布——我们的动作很快。
+
+Javascript1.0 是一种简单的动态类型语言，支持数值、字符串、布尔值，一等公民的函数和对象数据类型。语法上来看，JavaScript 和 Java 一样，属于 C 语言家族，其控制流语句借鉴了 C 语言，表达式语法包含了大部分 C 语言中的数字运算符。JavaScript 1.0 的源代码通常直接嵌入到 HTML 文件中，但内置库中包含了一个 eval 函数，可以解析和运行以 JavaScript 字符串值编码的 JavaScript 源代码。JavaScript 1.0 是一种非常精简的语言。表 3 总结了一些其中没有的功能，这些功能的遗漏可能会让现代的 JavaScript 程序员感到惊讶。
+
+-   独立的 Array 对象类型
+-   正则表达式
+-   undefined 的全局绑定
+-   typeof, void, delete 操作符
+-   do-while 语句
+-   try-catch-finally 语句
+-   嵌套函数声明
+-   函数的.call, .apply 方法
+-   原型继承
+-   循环垃圾回收
+-   Array 字面量
+-   Object 字面量
+-   === 操作符
+-   in, instanceof 操作符
+-   switch 语句
+-   break/continue 跳转(to label)
+-   Function 表达式
+-   函数的 prototype 属性
+-   对内置原型对象的访问
+-   HTML <script> 标签的 src 和 attribute
+
+表. 3. JavaScript 1.0 中没有但（在 2010 年）常用的功能。
+
+1996 年初，开始了 "Atlas"[Netscape 1996g]的工作，这就是 1996 年 8 月 Netscape Navigator 3.0 的代码名称。1995 年 8 月 2.0 功能冻结时，Brendan Eich 得以恢复工作。直到 Navigator 3.0 中发布了 JavaScript 1.1[Netscape 1996a,e]，才完成了 JavaScript 的初步定义和开发。以下各节介绍了 JavaScript 1.0/1.1 语言的设计概况。
+
+1996 年初，Atlas 项目开始，这也是 1996 年 8 月 Netscape Navigator 3.0 的代码名称。Brendan Eich 终于得以从 1995 年 8 月 2.0 锁版本中恢复工作。直到 Navigator 3.0 中发布了 JavaScript 1.1，JavaScript 的最初设计和开发才完成。以下各节介绍了 JavaScript 1.0/1.1 语言的设计概况。
