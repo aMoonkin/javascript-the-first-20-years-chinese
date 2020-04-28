@@ -88,10 +88,20 @@ Javascript1.0 是一种简单的动态类型语言，支持数值、字符串、
 -   Function 表达式
 -   函数的 prototype 属性
 -   对内置原型对象的访问
--   HTML <script> 标签的 src 和 attribute
+-   HTML `<script>` 标签的 src 和 attribute
 
 表. 3. JavaScript 1.0 中没有但（在 2010 年）常用的功能。
 
 1996 年初，开始了 "Atlas"[Netscape 1996g]的工作，这就是 1996 年 8 月 Netscape Navigator 3.0 的代码名称。1995 年 8 月 2.0 功能冻结时，Brendan Eich 得以恢复工作。直到 Navigator 3.0 中发布了 JavaScript 1.1[Netscape 1996a,e]，才完成了 JavaScript 的初步定义和开发。以下各节介绍了 JavaScript 1.0/1.1 语言的设计概况。
 
 1996 年初，Atlas 项目开始，这也是 1996 年 8 月 Netscape Navigator 3.0 的代码名称。Brendan Eich 终于得以从 1995 年 8 月 2.0 锁版本中恢复工作。直到 Navigator 3.0 中发布了 JavaScript 1.1，JavaScript 的最初设计和开发才完成。以下各节介绍了 JavaScript 1.0/1.1 语言的设计概况。
+
+### 3.1 Javascript 语法
+
+JavaScript 1.0 的语法直接仿照了 C 语言的语句语法，并在此基础上加入了一些 AWK 的元素。脚本是一串语句和声明。与 C 语言不同的是，JavaScript 的语句并不一定要存在于在函数体内。在 JavaScript 1.0 中，脚本的源代码被嵌入到 HTML 文档中，并被一个`<script></script>`标签所包围。
+
+JavaScript 1.0 中的受 C 语言启发的语句有：表达式语句；if 条件语句；for 和 while 循环语句；break、continue 和 return 语句，并把他们用作非顺序的流程控制；以及语句块，它使得被`{}`包围的语句群能被当作一条语句来使用。if，for 和 while 语句是语句标签或 goto 语句。 JavaScript 1.0 不包含 C 的 do-while 语句和 switch 语句。
+
+在基础的 C 语句之外，JavaScript 1.0 还增加了两条复合语句，用于访问对象数据类型的属性。受 AWK 启发的 for-in 语句可以对对象的 key 进行迭代。在 with 语句的内部，可以如访问已声明的变量一样直接访问指定对象的属性。由于属性可以被动态添加（在语言的后期版本中也可以被删除），可见的变量绑定可以随着 with 语句的执行过程而改变。
+
+JavaScript 声明不遵循 C 语言或 Java 声明的风格。JavaScript 是动态类型化的；此外，它没有语言级的类型名作为语法前缀来识别声明。相反，JavaScript 的声明是用关键字前缀。JavaScript 1.0 有两种形式的声明：函数声明和 var 声明。函数声明的语法是直接从 AWK 中借用的。一个函数声明定义了单个可调用函数的名称、形式参数和语句体。var 声明引入了一个或多个变量绑定，并有选择地给变量赋值。所有的 var 声明都被看作是语句，可以出现在任何语句上下文中，包括块语句中。在 JavaScript 1.0/1.1 中，函数声明只能出现在脚本的顶层，不能包含嵌套的函数声明。一个 var 声明可以出现在函数体中，而且由这些声明定义的变量是函数的内部变量。
