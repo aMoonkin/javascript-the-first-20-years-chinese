@@ -18,5 +18,5 @@ PS：还愿项目，翻译的很慢，但愿能翻译下去
 
 ## 翻译器
 
-https://www.deepl.com/translator -> 这个翻译的不错
-https://translate.google.cn/
+-   https://www.deepl.com/translator -> 这个翻译的不错
+-   https://translate.google.cn/
