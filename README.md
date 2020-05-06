@@ -6,6 +6,8 @@ JavaScript: The First 20 Years 中文翻译
 
 本文讲述了 1995 年至 2015 年间 JavaScript 语言的创建，设计，演变和标准化的故事。
 
+[gitbook 版本](https://app.gitbook.com/@xiesansi/s/javascript-the-first-20-years-chinese/)
+
 ## 参与翻译
 
 1. fork
