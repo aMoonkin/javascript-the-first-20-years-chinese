@@ -133,4 +133,27 @@ JavaScript 1.0 的表达式语法是从 C 语言中借鉴过来的，两种语�
 
 Javascript 1.1 增加了`delete`， `typeof`和`void`操作符。在 Javascript1.1 中，`delete`操作符仅仅能把操作数或者对象属性设为 null。`typeof`操作符返回标示操作数类型的字符串，可能的值在"object"，"function"，"boolean"， "string"，"number"或者一种用来标示对象的是自定义的字符串值之中。令人吃惊的是，`typeof null`返回的是字符串"object"而不是"null"。这可以说是与 Java 一致的，在 Java 中，所有的值都是对象，null 本质上就是 "无对象 "的对象。但 Java 缺少一个与 typeof 类似的操作符，并且使用 null 作为为初始化变量的默认值。根据 Brendan Eich 的回忆，`typeof null`的值是原本 Mocha 实现中的一个抽象泄漏 (Leaky abstraction)的结果，null 的运行时值被编码为与对象值相同的内部标记值，因此 typeof 操作符的实现返回的是 "object"，而不需要任何额外的特殊情况逻辑。这种选择被证明是对 JavaScript 程序员的一大困扰，因为他们通常希望在尝试使用值的属性的之前，先测试一个值是否是一个对象。但是测试一个值的结果是"object"并不足以证明可以访问其属性，因为试图访问 null 的属性会产生一个运行时错误。
 
-`void`操作符仅需访问它的操作数，并且返回 undefined。`void 0`是一个常用的获得 undefined 的方法。 void 操作符的也被引入帮助定义 HTML 超链接，例如，当点击时执行 JavaScript 代码。
+`void`操作符仅需访问它的操作数，并且返回 undefined。`void 0`是一个常用的获得 undefined 的方法。 void 操作符的也被引入帮助定义 HTML 超链接，例如，当点击 HTML 超链接时时执行 JavaScript 代码：
+
+```html
+<a href="javascript:void usefulFunction()">Click to do something useful</a>
+```
+
+href 属性的值应该是一个 URL，在这里`Javascript:`是一种特殊的 URL 协议，能够被浏览器识别。它的意思是将这个值当作 Javascript 代码进行处理、使用它的返回值并将其转换为字符串，正如使用普通的 href URL 获取的响应文档一样。`<a>`元素将尝试处理该文档，除非它是`undefined`的。通常情况下，web 开发者希望在点击链接的时候才会出发 Javascript 表达式的执行。用 void 作为表达式的前缀，可以让他以这种方式使用，并避免了进一步处理`<a>`元素。
+
+C 语言表达式与 Javascript 表达式最大的区别在于，Javascript 操作符在操作符域内自动转换其操作数的数据类型。Javascript1.1 增加了一个可配置的机制，将对象强制转换为数字或者字符串的值。图 4 总结了 Javascript1.1 强制转换规则。
+
+![图4](fig4.png)
+
+键：
+
+-   两个被`/`分开的结果代表 Javascript 会先尝试第一个，如果不成功的话会使用第二个。
+-   N/C：不需要转换。
+-   decompile: 包含函数的内部源码的字符串。
+-   toString: 调用 toString 方法的结果。
+-   valueOf: 调用 valueOf 方法的结果。
+-   number：如果字符串是有效的整数或浮点字形，则为数值。
+
+1. 如果 valueOf 不返回字符串，则使用默认的对象-字符串转换。
+2. Navigator 3.0 中实现的 JavaScript 1.1 将 NaN 转换为 true。
+3. Navigator 3.0 中实现的 JavaScript 1.1 将空字符串转换为 0。
