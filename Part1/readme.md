@@ -193,3 +193,33 @@ a[1] = "one";
 a[2] = "two";
 a.length = 3;
 ```
+
+Javascript 1.0 中没有继承的概念，必须得为没有个新对象分别添加所有的属性。这通常是通过为程序使用的每个"类"对象定义一个构造函数来实现的。图 6 显示了一个使用 JavaScript 1.0 编写的简单 Point 抽象的定义。这个例子中需要注意的重要事项如下：
+
+-   每个方法必须被定义为一个全局可见的函数。这些函数的名称必须不可能与其他类抽象（ptSum, ptDistance）的方法函数的名称相冲突。
+-   当构造一个对象时，必须为每个方法创建一个对象属性，并将其值初始化为相应的全局函数。
+-   方法使用其属性名(origin.distance)而不是全局名(ptDistance)来调用。
+
+```javascript
+// 定义可以用作方法的对象
+function ptSum(pt2) {
+    return new Point(this.x + pt2.x, this.y + pt2.y);
+}
+function ptDistance(pt2) {
+    return Math.sqrt(Math.pow(pt2.x - this.x, 2) + Math.pow(pt2.y - this.y, 2));
+}
+// 定义Point构造器
+function Point(x, y) {
+    // 创建并初始化新对象的数据属性
+    this.x = x;
+    this.y = y;
+    // 为每个实例增加方法
+    this.sum = ptSum;
+    this.distance = ptDistance;
+}
+var origin = new Point(0, 0); // 创建一个Point对象
+```
+
+图 6. 使用 JavaScript 1.0 定义一个抽象 Point。每个实例对象都有自己的方法属性。
+
+JavaScript 1.1 消除了在每个新实例上直接创建方法属性的需要。它通过函数对象的一个名为 prototype 的属性，将一个 prototype 对象与每个构造函数关联起来。JavaScript1.1 指南[Netscape 1996e]将 prototype 描述为"指定类型的所有对象共享的属性"。这是个模糊的描述，可能更好的说法是：一个对象的属性与构造函数创建的所有对象共享。
