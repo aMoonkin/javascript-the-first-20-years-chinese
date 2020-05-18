@@ -223,3 +223,33 @@ var origin = new Point(0, 0); // 创建一个Point对象
 图 6. 使用 JavaScript 1.0 定义一个抽象 Point。每个实例对象都有自己的方法属性。
 
 JavaScript 1.1 消除了在每个新实例上直接创建方法属性的需要。它通过函数对象的一个名为 prototype 的属性，将一个 prototype 对象与每个构造函数关联起来。JavaScript1.1 指南[Netscape 1996e]将 prototype 描述为"指定类型的所有对象共享的属性"。这是个模糊的描述，可能更好的说法是：一个对象的属性与构造函数创建的所有对象共享。
+
+共享机制就不过多描述了，但可以观察到原型对象的以下特征：
+
+-   当访问对象的属性时，如果这个属性的名称是定义在某个原型上，且原型与对象的构造器相关联，那么将返回这个原型对象上对应的属性。
+-   对原型对象上属性的增加或者修改会直接影响到与原型相关联的构造函数创建的已有对象。
+-   直接给对象的属性赋值，会使与对象的构造器相关联的原型上的同名属性被隐藏掉。
+
+每一个存在于内置的`Object.prototype`上的属性，除非被对象或者其原型隐藏，都对所有对象是可见的。
+
+```javascript
+// 定义可以用作方法的对象
+function ptSum(pt2) {
+    return new Point(this.x + pt2.x, this.y + pt2.y);
+}
+function ptDistance(pt2) {
+    return Math.sqrt(Math.pow(pt2.x - this.x, 2) + Math.pow(pt2.y - this.y, 2));
+}
+// 定义Point构造器
+function Point(x, y) {
+    // 创建并初始化新对象的数据属性
+    this.x = x;
+    this.y = y;
+}
+// 为每个实例增加方法
+Point.prototype.sum = ptSum;
+Point.prototype.distance = ptDistance;
+var origin = new Point(0, 0); // 创建一个Point对象
+```
+
+图 7. 使用 JavaScript 1.1 定义一个抽象 Point。实例对象可以从`Point.prototype`对象继承方法，而不是在每个实例中都定义该方法。
