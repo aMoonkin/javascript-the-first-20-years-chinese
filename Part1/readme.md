@@ -283,3 +283,5 @@ alert(countedHello.callCount); // 5
 Javascript1.0 自带了一个内置函数、对象和构造器的库，该库定义了一些“通用”对象和函数，同时还定义了许多“host 专用”的对象和函数。对于 Netscape Navigator，host 对象提供了当前 HTML 文档的部分模型。这些 API 最终被称为文档对象模型（DOM）0 级。对于 Netscape Enterprise Server，host 对象支持客户机/服务器通信，管理客户机和服务器会话的状态，以及文件和数据库访问。服务器主机对象的这种设计并没有在 Netscape 服务器产品之外获得采用。
 
 JavaScript 的早期设计主要是由浏览器平台的需求驱动的。早期的 JavaScript 版本的 Netscape 文档并没有明确区分库中的元素是独立于主机环境还是依赖主机的。然而，DOM 和其他浏览器平台 API 的设计、演进和标准化，构成了它自己的重要故事，值得我们自己的历史。本文只在与 JavaScript 的整体设计相关时才会提到浏览器相关的问题。
+
+JavaScript 1.0 只有两个通用对象类，String 和 Date。除此之外，还有一个单例的全局对象 Math，其属性是常用的数学常数和函数。几个未使用或不完全实现的类的构造函数也可以被知道如何访问的 JavaScript 1.0 程序观察到。JavaScript 1.1 完成了这些特性的实现，并记录了它们的存在。图 8 总结了 JavaScript 1.0 和 1.1 中定义的与 host 无关的类。
